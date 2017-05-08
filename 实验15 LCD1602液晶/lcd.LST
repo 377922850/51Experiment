@@ -1,0 +1,94 @@
+C51 COMPILER V9.01   LCD                                                                   12/04/2016 11:19:47 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN lcd.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE lcd.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "lcd.h"
+   2          
+   3          
+   4          void LCD1602_delay1ms(uint c)   //误差 0us
+   5          {
+   6   1          uchar a,b;
+   7   1              for (; c>0; c--)
+   8   1              {
+   9   2                       for (b=199;b>0;b--)
+  10   2                       {
+  11   3                              for(a=1;a>0;a--);
+  12   3                       }      
+  13   2              }
+  14   1              
+  15   1      }
+  16          
+  17          
+  18          void LCDwritecommand(uchar command)       //写入命令
+  19          {
+  20   1              LCD1602_E = 0;     //使能
+  21   1              LCD1602_RS = 0;    //选择发送命令
+  22   1              LCD1602_RW = 0;    //选择写入
+  23   1              
+  24   1              LCD1602_dataline = command;     //放入命令
+  25   1              LCD1602_delay1ms(1);            //等待数据稳定
+  26   1      
+  27   1              LCD1602_E = 1;            //写入时序
+  28   1              LCD1602_delay1ms(5);      //保持时间
+  29   1              LCD1602_E = 0;
+  30   1      }
+  31          
+  32                             
+  33                             
+  34          void LCDwritedata(uchar dat)                    //写入数据
+  35          {
+  36   1              LCD1602_E = 0;  //使能清零
+  37   1              LCD1602_RS = 1; //选择输入数据
+  38   1              LCD1602_RW = 0; //选择写入
+  39   1      
+  40   1              LCD1602_dataline = dat; //写入数据
+  41   1              LCD1602_delay1ms(1);
+  42   1      
+  43   1              LCD1602_E = 1;   //写入时序
+  44   1              LCD1602_delay1ms(5);   //保持时间
+  45   1              LCD1602_E = 0;
+  46   1      }
+  47                     
+  48          
+  49          void LCDstart()                                           //LCD初始化子程序
+  50          {
+  51   1              LCDwritecommand(0x06);            //模式设置             0000 01 i/d s
+  52   1                                                                                //i/d : 0=写入新数据后光标左移     1=写入新数据后光标右移
+  53   1                                                                                //s   : 0=写入新数据后显示屏不移动 1=写入新数据后显示屏整体右
+  54   1      
+  55   1              LCDwritecommand(0x38);            //显示开关功能     0000 1DCB
+C51 COMPILER V9.01   LCD                                                                   12/04/2016 11:19:47 PAGE 2   
+
+  56   1                                                //D : 0=显示功能关     1=显示功能开
+  57   1                                                                                //C : 0=无光标         1=有光标
+  58   1                                                                                //B : 0=光标闪烁       1=光标不闪烁
+  59   1      
+  60   1              LCDwritecommand(0x0c);            //功能设定         001 DL NFXX
+  61   1                                                //DL : 0=数据总线为 4 位     1=数据总线为 8 位
+  62   1                                                                                //N  : 0=显示 1 行           1=显示 2 行
+  63   1                                                                                //F  : 0=5×7 点阵/每字符     1=5×10 点阵/每字符
+  64   1      
+  65   1              LCDwritecommand(0x01);            //清屏指令
+  66   1      
+  67   1              
+  68   1      }
+  69          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     82    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

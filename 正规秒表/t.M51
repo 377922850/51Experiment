@@ -1,0 +1,216 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/28/2016  21:34:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE main.obj TO t RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  t (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000CH     UNIT         ?DT?MAIN
+            IDATA   0014H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     006DH     UNIT         ?PR?DIGDISPLAY?MAIN
+            CODE    007BH     0046H     UNIT         ?PR?XIANSHISHUJU?MAIN
+            CODE    00C1H     0037H     UNIT         ?PR?TIME0?MAIN
+            CODE    00F8H     0019H     UNIT         ?PR?MAIN?MAIN
+            CODE    0111H     0010H     UNIT         ?PR?TIME0INIT?MAIN
+            CODE    0121H     0010H     UNIT         ?CO?MAIN
+            CODE    0131H     000CH     UNIT         ?C_C51STARTUP
+            CODE    013DH     000BH     UNIT         ?PR?_DELAY?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   t (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?_DELAY?MAIN
+  +--> ?PR?TIME0INIT?MAIN
+  +--> ?PR?XIANSHISHUJU?MAIN
+  +--> ?PR?DIGDISPLAY?MAIN
+
+?PR?XIANSHISHUJU?MAIN
+  +--> ?CO?MAIN
+
+?PR?DIGDISPLAY?MAIN
+  +--> ?PR?_DELAY?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/28/2016  21:34:06  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  t (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0008H         PUBLIC        second
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  D:0009H         PUBLIC        smguan
+  C:013DH         PUBLIC        _delay
+  D:0011H         PUBLIC        minute
+  C:0111H         PUBLIC        time0init
+  D:00B8H         PUBLIC        IP
+  B:00B0H.1       PUBLIC        k1
+  C:00F8H         PUBLIC        main
+  C:007BH         PUBLIC        xianshishuju
+  C:000EH         PUBLIC        digdisplay
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:0012H         PUBLIC        hour
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  C:0121H         PUBLIC        shumaguan
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  B:00A0H.2       PUBLIC        LSA
+  C:00C1H         PUBLIC        time0
+  B:00A0H.3       PUBLIC        LSB
+  B:00A0H.4       PUBLIC        LSC
+  D:00C8H         PUBLIC        T2CON
+  D:0013H         PUBLIC        ssecond
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  C:013DH         LINE#         18
+  C:013DH         LINE#         19
+  C:013DH         LINE#         20
+  C:0147H         LINE#         21
+  -------         ENDPROC       _DELAY
+  -------         PROC          DIGDISPLAY
+  -------         DO            
+  D:0005H         SYMBOL        i
+  -------         ENDDO         
+  C:000EH         LINE#         23
+  C:000EH         LINE#         24
+  C:000EH         LINE#         26
+  C:0010H         LINE#         27
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/28/2016  21:34:06  PAGE 3
+
+
+  C:0010H         LINE#         28
+  C:0035H         LINE#         29
+  C:0035H         LINE#         30
+  C:0039H         LINE#         31
+  C:0041H         LINE#         32
+  C:0045H         LINE#         33
+  C:004DH         LINE#         34
+  C:0051H         LINE#         35
+  C:0059H         LINE#         36
+  C:005DH         LINE#         37
+  C:0063H         LINE#         39
+  C:0063H         LINE#         40
+  C:006AH         LINE#         41
+  C:0071H         LINE#         42
+  C:0074H         LINE#         43
+  C:007AH         LINE#         46
+  -------         ENDPROC       DIGDISPLAY
+  -------         PROC          XIANSHISHUJU
+  C:007BH         LINE#         48
+  C:007BH         LINE#         49
+  C:007BH         LINE#         50
+  C:0089H         LINE#         51
+  C:0092H         LINE#         52
+  C:0095H         LINE#         53
+  C:00A0H         LINE#         54
+  C:00A9H         LINE#         55
+  C:00ACH         LINE#         56
+  C:00B7H         LINE#         57
+  C:00C0H         LINE#         58
+  -------         ENDPROC       XIANSHISHUJU
+  -------         PROC          TIME0INIT
+  C:0111H         LINE#         60
+  C:0111H         LINE#         61
+  C:0111H         LINE#         62
+  C:0114H         LINE#         63
+  C:0117H         LINE#         64
+  C:011AH         LINE#         65
+  C:011CH         LINE#         66
+  C:011EH         LINE#         67
+  C:0120H         LINE#         68
+  -------         ENDPROC       TIME0INIT
+  -------         PROC          MAIN
+  C:00F8H         LINE#         71
+  C:00F8H         LINE#         72
+  C:00F8H         LINE#         73
+  C:00FBH         LINE#         74
+  C:00FBH         LINE#         75
+  C:0102H         LINE#         76
+  C:0105H         LINE#         77
+  C:0105H         LINE#         78
+  C:0108H         LINE#         79
+  C:0108H         LINE#         80
+  C:0108H         LINE#         81
+  C:010BH         LINE#         82
+  C:010EH         LINE#         83
+  C:0110H         LINE#         84
+  C:0110H         LINE#         85
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/28/2016  21:34:06  PAGE 4
+
+
+  C:0110H         LINE#         86
+  -------         ENDPROC       MAIN
+  -------         PROC          TIME0
+  C:00C1H         LINE#         89
+  C:00C5H         LINE#         91
+  C:00C7H         LINE#         92
+  C:00CAH         LINE#         93
+  C:00CDH         LINE#         94
+  C:00D2H         LINE#         95
+  C:00D2H         LINE#         96
+  C:00D5H         LINE#         97
+  C:00D7H         LINE#         98
+  C:00DCH         LINE#         99
+  C:00DCH         LINE#         100
+  C:00DFH         LINE#         101
+  C:00E1H         LINE#         102
+  C:00E6H         LINE#         103
+  C:00E6H         LINE#         104
+  C:00E9H         LINE#         105
+  C:00EBH         LINE#         106
+  C:00F0H         LINE#         107
+  C:00F0H         LINE#         108
+  C:00F3H         LINE#         109
+  C:00F3H         LINE#         110
+  C:00F3H         LINE#         111
+  C:00F3H         LINE#         112
+  C:00F3H         LINE#         117
+  -------         ENDPROC       TIME0
+  -------         ENDMOD        MAIN
+
+Program Size: data=21.0 xdata=0 code=320
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

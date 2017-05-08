@@ -1,0 +1,89 @@
+C51 COMPILER V9.01   MAIN                                                                  11/22/2016 22:35:03 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          //led点阵     又D口和P0口   竖着从上到下为D7~D1   横着从左到右为P07~P00
+   2          
+   3          #include "reg52.h"
+   4          #include "intrins.h"             //调用_nop_   空循环一个机器指令的时间
+   5          
+   6          sbit rclk=P3^5;                  //              存贮寄存器时钟
+   7          sbit srclk=P3^6;                 //              移位寄存器时钟 
+   8          sbit ser=P3^4;                   //              串行输入
+   9          
+  10          typedef unsigned char u8;
+  11          typedef unsigned int u16;          //对数据类型进行声明
+  12          
+  13          u8 ledhang[]={0x18,0x24,0x22,0x11,0x11,0x22,0x24,0x18};    //行
+  14          u8 ledlie[]={0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0xfe};     //列
+  15          
+  16          
+  17          void delay(u16 i)
+  18              {
+  19   1                      while(i--);
+  20   1                      }
+  21          
+  22          void  HC595 (u8 led)           //74hc595芯片
+  23               {
+  24   1                       u8 a;
+  25   1                       srclk=0;
+  26   1                       rclk=0;
+  27   1      
+  28   1                       for (a=0;a<8;a++)
+  29   1                           {
+  30   2                                      ser=led>>7;                //输入最高位
+  31   2                                      led<<=1;                   //将次高位变为最高位
+  32   2                      srclk=1;                   //出现一个上升沿  位移一个
+  33   2                                      _nop_;
+*** WARNING C275 IN LINE 33 OF MAIN.C: expression with possibly no effect
+  34   2                                      _nop_;
+*** WARNING C275 IN LINE 34 OF MAIN.C: expression with possibly no effect
+  35   2                                      srclk=0;
+  36   2                               }    
+  37   1      
+  38   1                        rclk=1;
+  39   1                        _nop_;
+*** WARNING C275 IN LINE 39 OF MAIN.C: expression with possibly no effect
+  40   1                        _nop_;
+*** WARNING C275 IN LINE 40 OF MAIN.C: expression with possibly no effect
+  41   1                        rclk=0;
+  42   1      
+  43   1               }
+  44          
+  45          
+  46          void main ()
+  47            {    u8 i;
+  48   1             while(1)
+  49   1              {         
+  50   2                    for(i=0;i<8;i++)
+  51   2                       { 
+C51 COMPILER V9.01   MAIN                                                                  11/22/2016 22:35:03 PAGE 2   
+
+  52   3                                 HC595 (ledhang[i]);  //0x18,0x24,0x22,0x11,0x11,0x22,0x24,0x18
+  53   3                                 P0=ledlie[i];         //0x7f（0111 1111）,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0xfe
+  54   3                                 
+  55   3                                 delay (100);
+  56   3                                 P0=0xff;     //1111 1111
+  57   3                               } 
+  58   2                   
+  59   2               }
+  60   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     79    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  4 WARNING(S),  0 ERROR(S)

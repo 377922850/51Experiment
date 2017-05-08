@@ -1,0 +1,49 @@
+C51 COMPILER V9.01   MAIN                                                                  11/21/2016 23:09:07 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg52.h"
+   2          
+   3          typedef unsigned char u8;
+   4          typedef unsigned int u16;               //对数据类型进行声明定义
+   5          
+   6          sbit beer=P1^5;            //    将P1^5口定义于beer
+   7          
+   8          void delay (u16 i)
+   9                 {
+  10   1                 
+  11   1                 while (i--);
+  12   1                         
+  13   1                  }                             //延时函数，i=1时，大约延时10us
+  14          
+  15          
+  16          void main()
+  17             {
+  18   1                 while(1)
+  19   1              {
+  20   2                      
+  21   2                      beer=~beer;
+  22   2                      delay (10);                //延时       1ms
+  23   2                      
+  24   2              
+  25   2                      }
+  26   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

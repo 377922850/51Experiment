@@ -1,0 +1,145 @@
+C51 COMPILER V9.01   MAIN                                                                  12/06/2016 20:15:03 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg52.h"
+   2          
+   3          typedef unsigned char u8;
+   4          typedef unsigned int u16;
+   5          
+   6          sbit out=P3^2;
+   7          sbit LSA=P2^2;
+   8          sbit LSB=P2^3;
+   9          sbit LSC=P2^4;
+  10          
+  11          u8 code shumaguan[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,
+  12                               0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0X76};       //显示0~f
+  13          u8 receive[4];
+  14          u8 Digdisplay[3];
+  15          u8 time;
+  16          
+  17          void delay(u16 i)
+  18          {
+  19   1              while(i--);
+  20   1      }
+  21          
+  22          void receivedata()
+  23          {
+  24   1         Digdisplay[0]=shumaguan[receive[2]/16];
+  25   1         Digdisplay[1]=shumaguan[receive[2]%16];
+  26   1         Digdisplay[2]=shumaguan[16];
+  27   1      }
+  28          
+  29          
+  30          void dig()
+  31          {
+  32   1         u8 i;
+  33   1         for(i=0;i<3;i--)
+  34   1           {
+  35   2                 switch(i)
+  36   2                  {
+  37   3                        case(0):LSA=0;LSB=0;LSC=0;break;
+  38   3                        case(1):LSA=1;LSB=0;LSC=0;break;
+  39   3                        case(2):LSA=0;LSB=1;LSC=0;break;
+  40   3                      }
+  41   2                 P0=Digdisplay[i];
+  42   2                 delay(100);
+  43   2                 P0=0x00;      
+  44   2               }
+  45   1      }
+  46          
+  47          void int0break ()
+  48          {
+  49   1        EA=1;                                           //打开总中断
+  50   1        IT0=1;                                          //选择为下降沿触发
+  51   1        EX0=1;                                          //打开中断允许
+  52   1        out=1;
+  53   1      }
+  54          
+  55          
+C51 COMPILER V9.01   MAIN                                                                  12/06/2016 20:15:03 PAGE 2   
+
+  56          void main()
+  57          {
+  58   1              int0break();
+  59   1              while(1)
+  60   1               {
+  61   2                 receivedata();
+  62   2                 dig();
+  63   2               }
+  64   1      }
+  65          
+  66          void int0() interrupt 0
+  67          {
+  68   1         u16 err;
+  69   1         u8 j,i;
+  70   1         delay(700);
+  71   1         if(out==0)
+  72   1          {  
+  73   2                 time=0;
+  74   2                 err=0;
+  75   2                 while((out==0)&&err<100)
+  76   2                       {
+  77   3                         delay(10);           //10x10us=100us=0.1ms   需要9ms
+  78   3                         err++;
+  79   3                       }
+  80   2                 if(out==1)
+  81   2                  {
+  82   3                        err=0;
+  83   3                        while((out==1)&&err<50)
+  84   3                         {
+  85   4                               delay(10);
+  86   4                               err++;
+  87   4                         }
+  88   3                         err=0;
+  89   3                         for(j=0;j<4;j++)
+  90   3                          {
+  91   4                                for(i=0;i<8;i++)
+  92   4                                 {                             
+  93   5                                        while((out==0) && err<6)               //延时0.6ms
+  94   5                                              {
+  95   6                                                delay(10); //延时0.1ms
+  96   6                                                err++;
+  97   6                                              }
+  98   5                                         while(out==1)
+  99   5                                          {
+ 100   6                                                 delay(10);  //0.1ms
+ 101   6                                                 time++;
+ 102   6                                                 if(time>30)
+ 103   6                                                 return;
+ 104   6                                              }
+ 105   5                                         receive[j]>>=1;
+ 106   5                                         if(time>8)
+ 107   5                                          {
+ 108   6                                                receive[j]|=0x80;
+ 109   6                                              }
+ 110   5                                         
+ 111   5                                 }
+ 112   4                              }
+ 113   3                         if(receive[2]!=~receive[3])
+ 114   3                         return;
+ 115   3                      }
+ 116   2              }
+ 117   1      
+C51 COMPILER V9.01   MAIN                                                                  12/06/2016 20:15:03 PAGE 3   
+
+ 118   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    319    ----
+   CONSTANT SIZE    =     17    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

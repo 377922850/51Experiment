@@ -1,0 +1,562 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\单片机\我的实验\红外通信\template.uvproj
+Project File Date:  10/20/2016
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(88): error C202: 'j': undefined identifier
+MAIN.C(90): error C202: 'i': undefined identifier
+MAIN.C(90): error C141: syntax error near ')'
+MAIN.C(102): error C202: 'returm': undefined identifier
+MAIN.C(104): error C202: 'j': undefined identifier
+MAIN.C(107): error C202: 'j': undefined identifier
+MAIN.C(112): error C141: syntax error near ';'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(88): error C202: 'j': undefined identifier
+MAIN.C(90): error C202: 'i': undefined identifier
+MAIN.C(90): error C141: syntax error near ')'
+MAIN.C(102): error C202: 'returm': undefined identifier
+MAIN.C(104): error C202: 'j': undefined identifier
+MAIN.C(107): error C202: 'j': undefined identifier
+MAIN.C(112): error C141: syntax error near ';'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(88): error C202: 'j': undefined identifier
+MAIN.C(90): error C202: 'i': undefined identifier
+MAIN.C(90): error C141: syntax error near ')'
+MAIN.C(102): error C202: 'returm': undefined identifier
+MAIN.C(104): error C202: 'j': undefined identifier
+MAIN.C(107): error C202: 'j': undefined identifier
+MAIN.C(112): error C141: syntax error near ';'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(88): error C202: 'j': undefined identifier
+MAIN.C(90): error C202: 'i': undefined identifier
+MAIN.C(90): error C141: syntax error near ')'
+MAIN.C(102): error C202: 'returm': undefined identifier
+MAIN.C(104): error C202: 'j': undefined identifier
+MAIN.C(107): error C202: 'j': undefined identifier
+MAIN.C(112): error C141: syntax error near ';'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(88): error C202: 'j': undefined identifier
+MAIN.C(90): error C202: 'i': undefined identifier
+MAIN.C(90): error C141: syntax error near ')'
+MAIN.C(102): error C202: 'returm': undefined identifier
+MAIN.C(104): error C202: 'j': undefined identifier
+MAIN.C(107): error C202: 'j': undefined identifier
+MAIN.C(112): error C141: syntax error near ';'
+Target not created
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+MAIN.C(103): error C202: 'returm': undefined identifier
+MAIN.C(105): error C183: unmodifiable lvalue
+MAIN.C(113): error C141: syntax error near ';'
+main.c - 4 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+MAIN.C(103): error C202: 'returm': undefined identifier
+MAIN.C(105): error C183: unmodifiable lvalue
+MAIN.C(113): error C141: syntax error near ';'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+MAIN.C(103): error C202: 'returm': undefined identifier
+MAIN.C(105): error C183: unmodifiable lvalue
+MAIN.C(113): error C141: syntax error near ';'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+MAIN.C(103): error C202: 'returm': undefined identifier
+MAIN.C(105): error C183: unmodifiable lvalue
+MAIN.C(113): error C141: syntax error near ';'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+MAIN.C(105): error C202: 'receivedate': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+MAIN.C(105): error C202: 'receivedate': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+MAIN.C(105): error C202: 'receivedate': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+MAIN.C(105): error C202: 'receivedate': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(91): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=37.0 xdata=0 code=502
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=20.0 xdata=0 code=372
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=18.0 xdata=0 code=354
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=18.0 xdata=0 code=354
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DIGDISPLAY
+    MODULE:  main.obj (MAIN)
+Program Size: data=18.0 xdata=0 code=354
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=18.0 xdata=0 code=354
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=18.0 xdata=0 code=354
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=18.0 xdata=0 code=354
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=18.0 xdata=0 code=354
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=18.0 xdata=0 code=354
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=18.0 xdata=0 code=354
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=18.0 xdata=0 code=354
+creating hex file from "template"...
+"template" - 0 Error(s), 0 Warning(s).

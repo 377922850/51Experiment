@@ -1,0 +1,62 @@
+C51 COMPILER V9.01   MAIN                                                                  12/05/2016 10:11:47 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg52.h"                       //此文件中定义了单片机的一些特殊功能寄存器
+   2          #include "lcd.h"
+   3          
+   4          typedef unsigned int u16;         //对数据类型进行声明定义
+   5          typedef unsigned char u8;
+   6          
+   7          u8 word1[]=" long ago there was a girl named cqy  !";
+   8          u8 word2[]=" she is butterful,as a result,she died .";
+   9          
+  10          void delay(u16 i)
+  11          {
+  12   1        while(i--);
+  13   1      }
+  14          
+  15          /*******************************************************************************
+  16          * 函 数 名         : main
+  17          * 函数功能                 : 主函数
+  18          * 输    入         : 无
+  19          * 输    出         : 无
+  20          *******************************************************************************/
+  21          void main(void)
+  22          {
+  23   1              u8 i,j=0;
+  24   1              while(1)
+  25   1              {
+  26   2               LCDstart();
+  27   2               LCDwritecommand(0x80);            //设置数据指针起点
+  28   2               for(i=0;i<40;i++)
+  29   2               {
+  30   3                 LCDwritedata(word1[i]);
+  31   3                 delay(50000);
+  32   3                 if(i==14)
+  33   3                      {
+  34   4                        LCDwritecommand(0x07);        
+  35   4                      }
+  36   3               }
+  37   2               i=0;   
+  38   2              }                       
+  39   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     66    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     81       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

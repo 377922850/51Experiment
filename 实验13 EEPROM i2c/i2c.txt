@@ -1,0 +1,282 @@
+#include  "reg52.h"
+#include  "i2c.h"					  //调用头文件
+
+
+typedef unsigned char u8;			  //对数据类型进行声明
+typedef unsigned int u16;			 
+
+sbit LSA=P2^2;						 //定义138三个地址输入
+sbit LSB=P2^3;
+sbit LSC=P2^4;						  
+
+sbit k1=P3^1;						 //开关
+sbit k2=P3^0;
+sbit k3=P3^2;
+sbit k4=P3^3;						 
+
+u8 number=0;
+u8 digdata[4];
+u8 code smgduan[10]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};	 //显示0~9
+
+
+void delay (u16 i)	                       //延时函数
+{
+   while(i--);
+}
+
+
+/************************   
+     按键处理函数
+************************/
+void keydisprose ()						   
+{
+	 if(k1==0)							   //写入一个数据
+	  {
+	  	delay(1000);
+		 if(k1==0)
+		  {
+		  	At24c02write(1,number);          //(address,number)
+		  }
+		 while(!k1);
+	  }
+
+	 if(k2==0)							   //读取一个数据
+	  {
+	  	delay(1000);
+		 if(k2==0)
+		  {
+		  	number=At24c02read (1);         //（address） 
+		  }
+		 while(!k2);
+	  }
+
+	 if(k3==0)							   //累加
+	  {
+	  	delay(1000);
+		 if(k3==0)
+		  {
+		  	number++;
+			if(number==256)
+			number=0;          
+		  }
+		 while(!k3);
+	  }
+
+	 if(k4==0)							   //清零
+	  {
+	  	delay(1000);
+		 if(k4==0)
+		  {
+		  	number=0;          
+		  }
+		 while(!k4);
+	  }
+}
+
+
+/************************   
+     动态数码管函数
+************************/
+void digdisplay ()
+{
+   u8 i;
+   for(i=0;i<4;i++)
+    {
+	  switch(i)
+	   {
+	   	 case(0):LSA=0;LSB=0;LSC=0;break;		 //显示第一位
+		 case(1):LSA=0;LSB=0;LSC=0;break;		 //显示第二位
+		 case(2):LSA=0;LSB=0;LSC=0;break;	   	 //显示第三位
+		 case(3):LSA=0;LSB=0;LSC=0;break;	   	 //显示第四位
+	   }
+	  
+	  P0=digdata[i];							 //发送段选数据
+	  delay (100);								 //1ms  间隔一段时间扫描
+	  P0=0x00;                                   //消影
+	
+	}	 
+
+}
+
+
+/************************   
+  数码管四位数据处理函数
+************************/
+void datadispose()
+{
+	digdata[0]=smgduan[number%1000%100%10];	 //个位
+	digdata[1]=smgduan[number%1000%100/10];	 //十位
+	digdata[2]=smgduan[number%1000/100];		 //百位
+	digdata[3]=smgduan[number/1000];			 //千位
+}
+
+
+/************************   
+         主函数
+************************/
+void main()
+{
+  while(1)
+   {
+	  keydisprose ();
+	  datadispose();
+	  digdisplay ();
+
+   }
+}
+
+
+
+我是分割线我是分割线我是分割线我是分割线我是分割线我是分割线
+
+
+
+
+
+
+
+#include "i2c.h"
+
+void delay10us()							  //延时 10us   误差为0
+{
+	    unsigned char a,b;
+	    for(b=1;b>0;b--)
+		for(a=2;a>0;a--);
+
+}								  
+
+void  i2cstartsignal ()					  //起始信号
+{										 //在SCL时钟信号在高电平期间SDA信号产生一个下降沿
+	  SDA=1;
+	  delay10us ();
+	  SCL=1;
+	  delay10us ();
+	  SDA=0;
+	  delay10us ();
+	  SCL=0;
+	  delay10us ();
+}		
+
+
+void i2cstopsignal ()			  //终止信号：在SCL时钟信号高电平期间SDA信号产生一个上升沿
+{
+	  SDA=0;
+	  delay10us ();
+	  SCL=1;
+	  delay10us ();
+	  SDA=1;
+	  delay10us ();	
+}							
+
+/***********************   
+   通过I2C发送一个字节
+***********************/
+unsigned char i2csendbyte (unsigned char dat)    //起始之后SDA和SCL都为0
+{
+	  unsigned char a,b=0;
+	  for (a=0;a<8;a++)						   //发送八个字节
+	   {	  	   
+		   delay10us ();
+		   SDA=dat>>7;
+		   dat<<=1;
+		   SCL=1;
+		   delay10us ();
+		   SCL=0;
+		   delay10us ();
+	   }					  
+	  SDA=1;
+	  delay10us ();
+	  SCL=1;
+	  delay10us ();
+	  while(SDA)			 //等待应答，从设备把SDA拉低
+	   {
+	   	   b++;
+		   if(b>200)       //如果超过2000us没有应答发送失败，或者为非应答，表示接收结束
+		    {
+		   	   SCL=0;
+			   delay10us ();
+			   return 0;		   
+		    }
+	   }
+	  SCL=0;
+	  delay10us ();	  
+	  return 1; 
+}	
+
+
+/***********************   
+   通过I2C读取一个字节
+***********************/
+unsigned char i2creadbyte ()
+{
+	 unsigned char a,dat=0;
+	 for(a=0;a<8;a++)			  //接收8个字节
+	  {
+	  	dat<<=1;
+		dat=dat|SDA;
+		SCL=1;
+		delay10us ();	
+		SCL=0;
+		delay10us ();	
+	  }
+	 return dat;
+}	
+
+
+/***********************   
+ 往At24c02里写一个数据
+***********************/
+void At24c02write (unsigned char address,unsigned char dat)
+{
+	i2cstartsignal ();			 //开始信号
+	i2csendbyte (0xa0);			//发送器件地址
+	i2csendbyte (address);	   //发送要写入内存地址
+	i2csendbyte (dat);		  //发送数据
+	i2cstopsignal ();        //结束信号
+}				  
+
+
+/************************   
+ 读取At24c02里的一个数据
+************************/
+unsigned char  At24c02read (unsigned char address)
+{
+    unsigned char number;
+	i2cstartsignal ();			 //开始信号
+	i2csendbyte (0xa0);			//发送写器件地址
+	i2csendbyte (address);	   //发送要读取的器件地址
+	i2cstartsignal ();		  //开始信号
+	i2csendbyte (0xa1);		 //发送读器件地址
+	number=i2creadbyte ();	
+	i2cstopsignal ();        //结束信号
+	return number;
+}
+
+
+
+
+
+我是分割线我是分割线我是分割线我是分割线我是分割线我是分割线
+
+
+
+#ifndef _i2c_h_
+#define _i2c_h_
+
+#include "reg52.h"
+
+sbit SDA=P2^0;
+sbit SCL=P2^1;
+
+
+void  i2cstartsignal ();															 //起始信号
+void i2cstopsignal ();																//终止信号
+unsigned char i2csendbyte (unsigned char dat);									   //发送一个数据
+unsigned char i2creadbyte ();													  //读取一个数据
+void At24c02write (unsigned char address,unsigned char dat);					 //写入一个数据
+unsigned char  At24c02read (unsigned char address);			//读取一个数据
+
+
+
+#endif
+
